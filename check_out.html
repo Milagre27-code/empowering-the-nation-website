@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Empowering the Nation|Payments</title>
+</head>
+<body>
+    <header id="header">
+        <img id="icon" src="_images/logo.png" alt="Logo Empowering the Nations">
+        <nav id="topLinks">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="currentPage">Payments</li>
+                <li><a href="weekly.html">Six-Weeks Courses</a></li>
+                <li><a href="monthly.html">Six-Months Courses</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Payments</h1>
+        <div class="content">
+            <h2 id="user">Enter your details</h2>
+            <div style="text-align: center;">
+                <form id="userForm">
+                    <p><label for="name">User Name</label></p>
+                    <input type="text" id="name" name="fname" required><br><br>
+                    <p><label for="phone">Phone Number</label></p>
+                    <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}"><br><br>
+                    <p><label for="email">Email Address</label></p>
+                    <input type="email" id="email" name="email" required><br><br>
+                </form>
+            </div>
+        </div>
+
+        <h1>Courses Available</h1>
+        <form id="coursesForm">
+            <h2>Six-Weeks Courses</h2>
+            <div class="wrapper">
+                <!-- Course Container Loop -->
+                <div class="container">
+                    <div class="content">
+                        <h2>Child Minding</h2>
+                        <img src="_images/childMinding.jpg" alt="Child Minding" width="400px" height="400px">
+                        <h2>Fees: R750</h2>
+                        <input type="checkbox" class="checkBox"  id="childMinding" name="course" value="Child Minding - R750">
+                        <label for="childMinding">Select Course</label><br>
+                    </div>
+                </div>
+                
+
+                <div class="container">
+                    <div class="content">
+                        <h2>Cooking</h2>
+                        <img src="_images/cooking.jpg" alt="Cooking" width="400px" height="400px">
+                        <h2>Fees: R750</h2>
+                        <input type="checkbox" class="checkBox"  id="cooking" name="course" value="Cooking - R750">
+                        <label for="cooking">Select Course</label><br>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="content">
+                        <h2>Garden Maintenance</h2>
+                        <img src="_images/gardenMaintenance.jpg" alt="Garden Maintenance" width="400px" height="400px">
+                        <h2>Fees: R750</h2>
+                        <input type="checkbox" class="checkBox" id="gardenMaintenance" name="course" value="Garden Maintenance - R750">
+                        <label for="gardenMaintenance">Select Course</label><br>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Six-Month Courses</h2>
+            <div class="wrapper">
+                <div class="container">
+                    <div class="content">
+                        <h2>First Aid</h2>
+                        <img src="_images/firstAid.jpg" alt="First Aid" width="400px" height="400px">
+                        <h2>Fees: R1500</h2>
+                        <input type="checkbox" class="checkBox"  id="firstAid" name="course" value="First Aid - R1500">
+                        <label for="firstAid">Select Course</label><br>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="content">
+                        <h2>Sewing</h2>
+                        <img src="_images/sewing.jpg" alt="Sewing" width="400px" height="400px">
+                        <h2>Fees: R1500</h2>
+                        <input type="checkbox" class="checkBox"  id="sewing" name="course" value="Sewing - R1500">
+                        <label for="sewing">Select Course</label><br>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="content">
+                        <h2>Landscaping</h2>
+                        <img src="_images/landScaping.jpg" alt="Landscaping" width="400px" height="400px">
+                        <h2>Fees: R1500</h2>
+                        <input type="checkbox" class="checkBox"  id="landscaping" name="course" value="Landscaping - R1500">
+                        <label for="landscaping">Select Course</label><br>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="content">
+                        <h2>Life Skills</h2>
+                        <img src="_images/lifeSkill.jpg" alt="Life Skills" width="400px" height="400px">
+                        <h2>Fees: R1500</h2>
+                        <input type="checkbox" class="checkBox"  id="lifeSkills" name="course" value="Life Skills - R1500">
+                        <label for="lifeSkills">Select Course</label><br>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div id="messageText">
+            <p id="message" style="display: none;"></p>
+        </div>
+
+        <button id="calculateBtn">Calculate Fees</button>
+
+        <!-- Pop-up section -->
+        <div id="summaryModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Invoice</h2>
+                <p id="summaryText"></p>
+                <button id="submitBtn">Submit</button>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <nav id="bottomLinks">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="currentPage">Payments</li>
+                <li><a href="weekly.html">Six-Weeks Courses</a></li>
+                <li><a href="monthly.html">Six-Months Courses</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <p>&copy; Empowering the Nation</p>
+    </footer>
+
+    <script>
+        // Function to open and close the modal
+        document.getElementById("calculateBtn").addEventListener("click", function () {
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+
+            if (!name || !phone || !email) {
+                document.getElementById("message").innerText = "Please fill out all fields.";
+                document.getElementById("message").style.display = "block";
+                return;
+            }
+
+            const selectedCourses = [];
+            let totalFees = 0;
+
+            document.querySelectorAll("#coursesForm input[type='checkbox']:checked").forEach((checkbox) => {
+                selectedCourses.push(checkbox.value);
+                const fee = parseInt(checkbox.value.split('- R')[1]);
+                totalFees += fee;
+            });
+
+            if (selectedCourses.length === 0) {
+                document.getElementById("message").innerText = "Please select at least one course.";
+                document.getElementById("message").style.display = "block";
+                return;
+            }
+
+            document.getElementById("summaryText").innerText = `
+                Name: ${name}
+                Phone: ${phone}
+                Email: ${email}
+                Selected Courses: ${selectedCourses.join(', ')}
+                Total Fees: R${totalFees}
+            `;
+            document.getElementById("summaryModal").style.display = "block";
+        });
+
+        // Close modal when the user clicks on <span> (x)
+        document.querySelector(".close").addEventListener("click", function () {
+            document.getElementById("summaryModal").style.display = "none";
+        });
+
+        // Close modal when the user clicks outside of the modal
+        window.onclick = function (event) {
+            if (event.target == document.getElementById("summaryModal")) {
+                document.getElementById("summaryModal").style.display = "none";
+            }
+        };
+
+        // Submit button action
+        document.getElementById("submitBtn").addEventListener("click", function () {
+            // Here you would typically send the form data to your server
+			document.getElementById("message").innerText = "Your application has been submitted";
+			document.getElementById("message").style.display = "block";
+			document.getElementById("summaryModal").style.display = "none";
+			document.getElementById("name").value = "";
+			document.getElementById("phone").value = "";
+			document.getElementById("email").value = "";
+			document.getElementById("coursesForm").reset();
+        });
+    </script>
+</body>
+</html>

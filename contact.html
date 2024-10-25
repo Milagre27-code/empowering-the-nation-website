@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowering the Nation|Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+    <header id="header">
+        <img id="icon"  src="_images/logo.png" alt="Logo Empowering the nations">
+      <nav id="topLinks">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="weekly.html">Six-Weeks Courses</a></li>
+            <li><a href="mounthly.html">Six-Months Courses</a></li>
+            <li><a href="check_out.html">Payments</a></li>
+            <li class ="currentPage">Contact Us</li>
+        </ul>
+      </nav>
+      
+    </header>
+<main>
+    <h1>Contact Us</h1>
+    <div id="contactNumbers">
+        <h3>Contact Number</h3>
+        <p> 073 906 5140</p>
+        <h3>Email address</h3>
+        <p>empoweringTheNation@gmail.com</p>
+        <h3>Select a venue</h3>
+
+        <div id="selection">
+          <select id="venueSelect">
+              <option value="">Select a venue</option>
+              <option value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7157.179635695036!2d28.01892654229772!3d-26.242514258211774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950ed427990ab5%3A0xcda9504aef7d584a!2sSouthdale%2C%20Johannesburg%20South%2C%202091!5e0!3m2!1sen!2sza!4v1727284794937!5m2!1sen!2sza">Southdale</option>
+              <option value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14320.479505269133!2d28.027764749164568!3d-26.192778428936645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c1974081ac5%3A0xd12a225dc667e805!2sBraamfontein%2C%20Johannesburg%2C%202017!5e0!3m2!1sen!2sza!4v1729777022801!5m2!1sen!2sza">Bramfrontein</option>
+              <option value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114513.688117113!2d27.755869564572127!3d-26.24371797409044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95a6b1e2746071%3A0x3a0838c21e9e6ddf!2sSoweto!5e0!3m2!1sen!2sza!4v1729777051504!5m2!1sen!2sza" >Soweto</option>
+          </select>
+      </div>
+      
+      <p>
+          <iframe id="mapIframe" width="600" height="450" style="border:0; display:none;" allowfullscreen="" 
+                  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </p>
+      
+      <script>
+          const venueSelect = document.getElementById('venueSelect');
+          const mapIframe = document.getElementById('mapIframe');
+      
+          venueSelect.addEventListener('change', function() {
+              const selectedVenue = this.value;
+              if (selectedVenue) {
+                  mapIframe.src = selectedVenue;
+                  mapIframe.style.display = 'block'; // Show the iframe when a venue is selected
+              } else {
+                  mapIframe.style.display = 'none';  // Hide the iframe if no venue is selected
+              }
+          });
+      </script>
+      
+      
+
+
+</main>
+      
+    <footer id="footer">
+        <nav id="bottomLinks">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="weekly.html"></a>Six-Weeks Courses</a></li>
+            <li><a href="mounthly.html">Six-Months Courses</a></li>
+            <li><a href="check_out.html">Payments</a></li>
+            <li class ="currentPage">Contact Us</li>
+          </ul>
+        </nav>
+        <p>
+          &copy; Empowering the nation
+        </p>
+      </footer>
+
+
+</body>
+</html>
