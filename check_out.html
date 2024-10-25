@@ -41,7 +41,6 @@
         <form id="coursesForm">
             <h2>Six-Weeks Courses</h2>
             <div class="wrapper">
-                <!-- Course Container Loop -->
                 <div class="container">
                     <div class="content">
                         <h2>Child Minding</h2>
@@ -124,7 +123,6 @@
 
         <button id="calculateBtn">Calculate Fees</button>
 
-        <!-- Pop-up section -->
         <div id="summaryModal" class="modal" style="display: none;">
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -147,9 +145,7 @@
         </nav>
         <p>&copy; Empowering the Nation</p>
     </footer>
-
     <script>
-        // Function to open and close the modal
         document.getElementById("calculateBtn").addEventListener("click", function () {
             const name = document.getElementById("name").value;
             const phone = document.getElementById("phone").value;
@@ -176,22 +172,39 @@
                 return;
             }
 
+            let discount = 0;
+            if (selectedCourses.length === 2) {
+                discount = 0.05; // 5% discount
+            } else if (selectedCourses.length === 3) {
+                discount = 0.10; // 10% discount
+            } else if (selectedCourses.length > 3) {
+                discount = 0.15; // 15% discount
+            }
+
+            const discountAmount = totalFees * discount;
+            const discountedTotal = totalFees - discountAmount;
+
+            // Calculate VAT (15% of the discounted total)
+            const vat = discountedTotal * 0.15;
+            const finalTotal = discountedTotal + vat;
+
             document.getElementById("summaryText").innerText = `
                 Name: ${name}
                 Phone: ${phone}
                 Email: ${email}
                 Selected Courses: ${selectedCourses.join(', ')}
-                Total Fees: R${totalFees}
+                Total Fees: R${totalFees.toFixed(2)}
+                Discount: -R${discountAmount.toFixed(2)} (${(discount * 100).toFixed(0)}% off)
+                VAT (15%): +R${vat.toFixed(2)}
+                Final amount: R${finalTotal.toFixed(2)}
             `;
             document.getElementById("summaryModal").style.display = "block";
         });
 
-        // Close modal when the user clicks on <span> (x)
         document.querySelector(".close").addEventListener("click", function () {
             document.getElementById("summaryModal").style.display = "none";
         });
 
-        // Close modal when the user clicks outside of the modal
         window.onclick = function (event) {
             if (event.target == document.getElementById("summaryModal")) {
                 document.getElementById("summaryModal").style.display = "none";
@@ -200,14 +213,13 @@
 
         // Submit button action
         document.getElementById("submitBtn").addEventListener("click", function () {
-            // Here you would typically send the form data to your server
-			document.getElementById("message").innerText = "Your application has been submitted";
-			document.getElementById("message").style.display = "block";
-			document.getElementById("summaryModal").style.display = "none";
-			document.getElementById("name").value = "";
-			document.getElementById("phone").value = "";
-			document.getElementById("email").value = "";
-			document.getElementById("coursesForm").reset();
+            document.getElementById("message").innerText = "Your application has been submitted";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("summaryModal").style.display = "none";
+            document.getElementById("name").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("coursesForm").reset();
         });
     </script>
 </body>
